@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alia K — Investigative Media & Audience Development</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -14,118 +16,207 @@
     --white: #ffffff;
     --soft: rgba(255,255,255,0.82);
     --muted: rgba(255,255,255,0.45);
-    --line: rgba(255,255,255,0.15);
+    --line: rgba(255,255,255,0.12);
     --card: rgba(255,255,255,0.05);
+
+    --accent: #3b82f6;
+    --accent-soft: rgba(59,130,246,0.15);
+    --accent-glow: rgba(59,130,246,0.35);
+
     --serif: 'Playfair Display', Georgia, serif;
     --sans: 'Inter', system-ui, sans-serif;
   }
 
   html { font-size: 16px; scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--white); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
 
   /* NAV */
-  nav { position: sticky; top: 0; z-index: 100; background: var(--bg); padding: 1.25rem 2.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
-  .nav-name { font-size: .9rem; font-weight: 400; color: var(--white); }
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(14,14,14,0.9);
+    backdrop-filter: blur(10px);
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-name { font-size: .9rem; font-weight: 400; }
   .nav-links { display: flex; gap: 2rem; }
-  .nav-links a { font-size: .72rem; text-decoration: none; color: var(--soft); letter-spacing: .1em; text-transform: uppercase; transition: color .2s; }
-  .nav-links a:hover { color: var(--white); }
+
+  .nav-links a {
+    font-size: .72rem;
+    text-decoration: none;
+    color: var(--soft);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
 
   /* LAYOUT */
   .page { max-width: 820px; margin: 0 auto; padding: 0 2.5rem; }
 
   /* HERO */
   .hero { padding: 8rem 0 5rem; }
-  .hero-eyebrow { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
-  h1 { font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 400; line-height: 1.1; letter-spacing: -.015em; margin-bottom: 1.75rem; }
-  h1 em { font-style: italic; }
-  .hero-sub { font-size: 1rem; color: var(--soft); max-width: 520px; line-height: 1.8; margin-bottom: 3.5rem; }
 
-  /* Callout / highlights */
+  .hero-eyebrow {
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--soft);
+    max-width: 520px;
+    margin-bottom: 3.5rem;
+  }
+
+  /* CALLOUT */
   .callout { border-top: 1px solid var(--line); }
-  .callout-row { display: flex; align-items: baseline; gap: 2rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
-  .callout-num { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; min-width: 130px; color: var(--white); }
-  .callout-desc { font-size: .88rem; color: var(--soft); }
+
+  .callout-row {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .callout-num {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--white);
+    text-shadow: 0 0 14px var(--accent-glow);
+    min-width: 140px;
+  }
+
+  .callout-desc {
+    font-size: .88rem;
+    color: var(--soft);
+  }
 
   /* SECTIONS */
-  section { padding: 5rem 0; border-top: 1px solid var(--line); }
-  .section-label { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 2.5rem; display: flex; align-items: center; gap: .75rem; }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--line);
+  }
 
-  h2 { font-family: var(--serif); font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.25rem; }
-  p { color: var(--soft); margin-bottom: 1rem; font-size: .95rem; line-height: 1.75; }
-  p:last-child { margin-bottom: 0; }
+  .section-label {
+    font-size: .7rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.6;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p { color: var(--soft); margin-bottom: 1rem; }
 
   /* CASE */
-  .case { padding-bottom: 4rem; margin-bottom: 4rem; border-bottom: 1px solid var(--line); }
-  .case:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .case-badge { display: inline-block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); padding: .3rem .9rem; border-radius: 100px; margin-bottom: .9rem; }
-  .case-title { font-family: var(--serif); font-style: italic; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 400; line-height: 1.05; margin-bottom: .5rem; }
-  .case-subtitle { font-size: .9rem; color: var(--muted); margin-bottom: 2rem; }
-
-  /* Metrics */
-  .metrics-row { display: flex; gap: 0; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; margin: 2rem 0; }
-  .metric-box { flex: 1; padding: 1.25rem 1rem; border-right: 1px solid var(--line); text-align: left; }
-  .metric-box:last-child { border-right: none; }
-  .metric-val { font-family: var(--serif); font-size: 1.9rem; font-weight: 400; color: var(--white); line-height: 1; margin-bottom: .35rem; }
-  .metric-lbl { font-size: .72rem; color: var(--muted); line-height: 1.4; }
-
-  /* Two-col grid */
-  .case-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2rem; }
-  @media(max-width: 580px) { .case-cols { grid-template-columns: 1fr; } .metrics-row { flex-wrap: wrap; } .metric-box { min-width: 50%; border-bottom: 1px solid var(--line); } }
-  .col-label { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .9rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); }
-  ul.bare { list-style: none; padding: 0; }
-  ul.bare li { font-size: .88rem; color: var(--soft); padding: .5rem 0; border-bottom: 1px solid var(--line); line-height: 1.55; display: flex; gap: .6rem; }
-  ul.bare li::before { content: '—'; color: var(--muted); flex-shrink: 0; }
-  ul.bare li:last-child { border-bottom: none; }
-
-  .strength { margin-top: 2rem; padding: 1.1rem 1.4rem; border: 1px solid var(--line); background: var(--card); font-size: .875rem; color: var(--soft); font-style: italic; line-height: 1.7; border-radius: 4px; }
-
-  /* STORIES */
-  .stories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  @media(max-width: 620px) { .stories-grid { grid-template-columns: 1fr; } }
-  .story-card { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--card); }
-  .story-preview {
-    aspect-ratio: 9/16;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-    font-family: var(--serif); font-style: italic;
+  .case {
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--line);
+    transition: transform .25s ease;
   }
-  .story-preview-1 { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
-  .story-preview-2 { background: linear-gradient(160deg, #2d1b2e 0%, #4a1942 50%, #c94b4b 100%); }
-  .story-preview-3 { background: linear-gradient(160deg, #1a0a0a 0%, #8b0000 50%, #c0392b 100%); }
-  .story-preview-label { font-family: var(--serif); font-style: italic; font-size: 1.4rem; color: rgba(255,255,255,0.9); text-align: center; padding: 1.5rem; line-height: 1.3; }
-  .story-doxa-badge { position: absolute; bottom: 1rem; left: 1rem; font-family: var(--sans); font-style: normal; font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
-  .story-info { padding: 1rem 1.1rem 1.25rem; }
-  .story-name { font-size: .82rem; font-weight: 500; color: var(--white); margin-bottom: .4rem; }
-  .story-desc { font-size: .78rem; color: var(--muted); line-height: 1.55; margin: 0; }
 
-  /* SKILLS */
-  .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
-  .chip { font-size: .8rem; padding: .4rem 1rem; border: 1px solid var(--line); border-radius: 100px; color: var(--soft); transition: border-color .2s, color .2s; cursor: default; }
-  .chip:hover { border-color: var(--white); color: var(--white); }
-  .tools-label { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .75rem; }
-  .tools-row { display: flex; flex-wrap: wrap; gap: .5rem 1.75rem; font-size: .85rem; color: var(--soft); }
+  .case:hover { transform: translateY(-2px); }
+
+  .case-title {
+    font-family: var(--serif);
+    font-size: 3rem;
+  }
+
+  .case-subtitle {
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  /* METRICS */
+  .metrics-row {
+    display: flex;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .metric-box {
+    flex: 1;
+    padding: 1.25rem;
+    border-right: 1px solid var(--line);
+  }
+
+  .metric-box:last-child { border-right: none; }
+
+  .metric-val {
+    font-family: var(--serif);
+    font-size: 2rem;
+    text-shadow: 0 0 18px var(--accent-glow);
+  }
+
+  .metric-lbl {
+    font-size: .72rem;
+    color: var(--muted);
+  }
+
+  /* CHIPS */
+  .chip {
+    border: 1px solid var(--line);
+    padding: .4rem 1rem;
+    border-radius: 100px;
+    font-size: .8rem;
+  }
+
+  .chip:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
 
   /* CONTACT */
-  .contact-box { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  @media(max-width: 560px) { .contact-box { grid-template-columns: 1fr; gap: 2rem; } }
-  .contact-links { display: flex; flex-direction: column; gap: 1.5rem; padding-top: .25rem; }
-  .contact-link { text-decoration: none; display: flex; flex-direction: column; gap: .2rem; }
-  .contact-link-label { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-  .contact-link-val { font-size: .95rem; color: var(--white); transition: color .2s; }
-  .contact-link:hover .contact-link-val { color: var(--soft); }
+  .contact-link-val { color: var(--white); }
+  .contact-link:hover .contact-link-val { color: var(--accent); }
 
-  /* FOOTER */
-  footer { padding: 2rem 2.5rem; border-top: 1px solid var(--line); font-size: .75rem; color: var(--muted); }
-
-  /* ANIM */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-eyebrow { animation: fadeUp .55s ease both .05s; }
-  .hero h1       { animation: fadeUp .55s ease both .15s; }
-  .hero-sub      { animation: fadeUp .55s ease both .25s; }
-  .callout       { animation: fadeUp .55s ease both .35s; }
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -133,7 +224,6 @@
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#cases">Cases</a>
-    <a href="#stories">Stories</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </div>
@@ -141,214 +231,95 @@
 
 <div class="page">
 
-  <!-- HERO -->
-  <section class="hero" id="hero" style="border-top:none;">
-    <div class="hero-eyebrow">Investigative Media · Audience Growth · Content Distribution</div>
-    <h1>Alia K —<br><em>Investigative Media</em><br>&amp; Audience Development</h1>
-    <p class="hero-sub">I work at the intersection of investigative storytelling, audience growth, and cross-platform content distribution for high-sensitivity political and social topics.</p>
-    <div class="callout">
-      <div class="callout-row">
-        <span class="callout-num">+14,000</span>
-        <span class="callout-desc">Telegram subscribers grown in 12 months (Behar)</span>
+<section class="hero">
+  <div class="hero-eyebrow">Investigative Media · Audience Growth · Content Distribution</div>
+
+  <h1>Alia K — Investigative Media & Audience Development</h1>
+
+  <p class="hero-sub">
+    I work at the intersection of investigative storytelling, audience growth,
+    and cross-platform content distribution for high-sensitivity topics.
+  </p>
+
+  <div class="callout">
+    <div class="callout-row">
+      <span class="callout-num">+14,000</span>
+      <span class="callout-desc">audience growth in migration/legal content ecosystem</span>
+    </div>
+    <div class="callout-row">
+      <span class="callout-num">100+</span>
+      <span class="callout-desc">cross-media investigative distribution campaigns</span>
+    </div>
+    <div class="callout-row">
+      <span class="callout-num">40+</span>
+      <span class="callout-desc">strategic media partnerships</span>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="section-label">Case studies</div>
+
+  <div class="case">
+    <div class="case-title">DOXA</div>
+    <div class="case-subtitle">Investigative distribution & audience growth</div>
+
+    <div class="metrics-row">
+      <div class="metric-box">
+        <div class="metric-val">100+</div>
+        <div class="metric-lbl">media collaborations</div>
       </div>
-      <div class="callout-row">
-        <span class="callout-num">100+</span>
-        <span class="callout-desc">media collaborations and campaigns (DOXA)</span>
+      <div class="metric-box">
+        <div class="metric-val">~800</div>
+        <div class="metric-lbl">subscribers from single campaign</div>
       </div>
-      <div class="callout-row">
-        <span class="callout-num">40+</span>
-        <span class="callout-desc">partnerships in migration &amp; legal media space</span>
-      </div>
-      <div class="callout-row">
-        <span class="callout-num">Fact-checking</span>
-        <span class="callout-desc">editorial adaptation of investigative content</span>
+      <div class="metric-box">
+        <div class="metric-val">10+</div>
+        <div class="metric-lbl">Meta campaigns</div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-label">About</div>
-    <h2>Media specialist at the edge<br>of investigative journalism</h2>
-    <p style="max-width:580px;">Media and communications specialist working with investigative journalism environments and high-sensitivity public-interest content. Focus on audience development, cross-platform distribution, and editorial adaptation of complex political, legal, and social information.</p>
-    <p style="max-width:580px;">Experienced in working with Russian- and English-language sources, with strong emphasis on fact-checking, clarity, and structured communication.</p>
-  </section>
+  <div class="case">
+    <div class="case-title">Behar</div>
+    <div class="case-subtitle">Migration & legal content growth</div>
 
-  <!-- CASES -->
-  <section id="cases">
-    <div class="section-label">Case studies</div>
-
-    <!-- DOXA -->
-    <div class="case">
-      <span class="case-badge">Partnerships &amp; Audience Development · 2023–2024</span>
-      <div class="case-title">DOXA</div>
-      <div class="case-subtitle">Investigative Content Distribution &amp; Audience Growth</div>
-
-      <div class="metrics-row">
-        <div class="metric-box"><div class="metric-val">100+</div><div class="metric-lbl">media collaborations &amp; campaigns</div></div>
-        <div class="metric-box"><div class="metric-val">~800</div><div class="metric-lbl">Telegram subscribers from single SOTA collab</div></div>
-        <div class="metric-box"><div class="metric-val">10+</div><div class="metric-lbl">Meta ad campaigns</div></div>
-        <div class="metric-box"><div class="metric-val">2–5</div><div class="metric-lbl">investigative stories distributed weekly</div></div>
+    <div class="metrics-row">
+      <div class="metric-box">
+        <div class="metric-val">14K+</div>
+        <div class="metric-lbl">Telegram growth</div>
       </div>
-
-      <div class="case-cols">
-        <div>
-          <div class="col-label">What I did</div>
-          <ul class="bare">
-            <li>Managed distribution of investigative content across 50+ media partners</li>
-            <li>Coordinated 2–5 investigative stories weekly across platforms</li>
-            <li>Built audience growth systems through partnerships and cross-media collaboration</li>
-            <li>Ran editorial pitching pipeline for time-sensitive investigative content</li>
-            <li>Executed cross-platform promotion (Telegram + social media + partner media)</li>
-            <li>Performed fact-checking of partner materials and promotional editorial content</li>
-          </ul>
-        </div>
-        <div>
-          <div class="col-label">Results</div>
-          <ul class="bare">
-            <li>100+ media collaborations and campaigns</li>
-            <li>10+ Meta ad campaigns driving thousands of views</li>
-            <li>~800 Telegram subscribers from a single collaboration (SOTA)</li>
-            <li>Weekly distribution of investigative reporting content</li>
-          </ul>
-        </div>
+      <div class="metric-box">
+        <div class="metric-val">80+</div>
+        <div class="metric-lbl">paid conversions</div>
       </div>
-      <div class="strength">Key strength: Investigative content distribution + audience amplification across independent media ecosystem</div>
-    </div>
-
-    <!-- BEHAR -->
-    <div class="case">
-      <span class="case-badge">Content &amp; Audience Development Lead · 2022–2023</span>
-      <div class="case-title">Behar</div>
-      <div class="case-subtitle">Migration &amp; Legal Content Growth — Behar International Counsel</div>
-
-      <div class="metrics-row">
-        <div class="metric-box"><div class="metric-val">+14K</div><div class="metric-lbl">Telegram subscribers in 12 months</div></div>
-        <div class="metric-box"><div class="metric-val">80+</div><div class="metric-lbl">clients for paid consultation programs</div></div>
-        <div class="metric-box"><div class="metric-val">40+</div><div class="metric-lbl">media partnerships &amp; integrations</div></div>
-        <div class="metric-box"><div class="metric-val">15+</div><div class="metric-lbl">structured content series</div></div>
-      </div>
-
-      <div class="case-cols">
-        <div>
-          <div class="col-label">What I did</div>
-          <ul class="bare">
-            <li>Built content strategy for Telegram-based migration/legal platform</li>
-            <li>Managed full content production cycle (explainers, cards, interactive formats, live sessions)</li>
-            <li>Translated and adapted English-language legal sources into Russian-language content</li>
-            <li>Coordinated 40+ partnerships, paid integrations, and cross-community campaigns</li>
-            <li>Moderated weekly live sessions and community engagement</li>
-            <li>Built structured educational content system for high-sensitivity audiences</li>
-          </ul>
-        </div>
-        <div>
-          <div class="col-label">Results</div>
-          <ul class="bare">
-            <li>+14,000 Telegram subscribers in 12 months</li>
-            <li>80+ clients acquired for paid consultation programs</li>
-            <li>40+ media partnerships and integrations</li>
-            <li>15+ structured content series (guides, explainers, visual formats)</li>
-          </ul>
-        </div>
-      </div>
-      <div class="strength">Key strength: High-sensitivity content systems + trust-based audience growth + legal information adaptation</div>
-    </div>
-  </section>
-
-  <!-- STORIES -->
-  <section id="stories">
-    <div class="section-label">Stories — content formats</div>
-    <h2 style="margin-bottom:.75rem;">Promotional stories</h2>
-    <p style="margin-bottom:2.5rem; max-width:520px;">Investigative and editorial stories created for DOXA's audience — turning complex reporting into engaging, shareable social content.</p>
-
-    <div class="stories-grid">
-
-      <div class="story-card">
-        <div class="story-preview story-preview-1">
-          <div class="story-preview-label">Экскурсия<br>по выставке<br>«Россия» на ВДНХ</div>
-          <div class="story-doxa-badge">DOXA</div>
-        </div>
-        <div class="story-info">
-          <div class="story-name">Выставка «Россия», ВДНХ</div>
-          <p class="story-desc">Придумала формат: экскурсия по пропагандистской выставке в сторис — каждый слайд = один стенд, критический взгляд изнутри.</p>
-        </div>
-      </div>
-
-      <div class="story-card">
-        <div class="story-preview story-preview-2">
-          <div class="story-preview-label">Так могло бы<br>выглядеть<br>резюме<br>Ярослава</div>
-          <div class="story-doxa-badge">DOXA</div>
-        </div>
-        <div class="story-info">
-          <div class="story-name">Профиль Шамана</div>
-          <p class="story-desc">Придумала собрать CV Шамана — формат резюме как способ разобрать феномен государственного «артиста».</p>
-        </div>
-      </div>
-
-      <div class="story-card">
-        <div class="story-preview story-preview-3">
-          <div class="story-preview-label">DOXA<br>на Patreon</div>
-          <div class="story-doxa-badge">DOXA</div>
-        </div>
-        <div class="story-info">
-          <div class="story-name">Patreon-кампания</div>
-          <p class="story-desc">Продвигающие сторис для запуска Patreon — с плейлистом, призывом к донатам и фирменным тоном DOXA.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label">Skills</div>
-    <h2 style="margin-bottom:1.75rem;">Areas of expertise</h2>
-    <div class="chips">
-      <span class="chip">Investigative content distribution</span>
-      <span class="chip">Audience growth strategy</span>
-      <span class="chip">Telegram ecosystems</span>
-      <span class="chip">Fact-checking &amp; editorial verification</span>
-      <span class="chip">OSINT-adjacent research</span>
-      <span class="chip">Meta Ads / targeted campaigns</span>
-      <span class="chip">Cross-platform storytelling</span>
-      <span class="chip">English ↔ Russian content adaptation</span>
-      <span class="chip">High-sensitivity communications</span>
-    </div>
-    <div class="tools-label">Tools</div>
-    <div class="tools-row">
-      <span>Meta Ads Manager</span>
-      <span>Figma</span>
-      <span>Canva</span>
-      <span>Adobe Premiere Pro</span>
-      <span>Telegram ecosystems</span>
-      <span>Content planning tools</span>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-label">Contact</div>
-    <div class="contact-box">
-      <div>
-        <h2>Available for<br>new projects</h2>
-        <p>Open to roles in investigative media, communications, and audience development.</p>
-      </div>
-      <div class="contact-links">
-        <a class="contact-link" href="mailto:alyasworkspace@gmail.com">
-          <span class="contact-link-label">Email</span>
-          <span class="contact-link-val">alyasworkspace@gmail.com</span>
-        </a>
-        <a class="contact-link" href="https://t.me/alyaprojects">
-          <span class="contact-link-label">Telegram</span>
-          <span class="contact-link-val">@alyaprojects</span>
-        </a>
+      <div class="metric-box">
+        <div class="metric-val">40+</div>
+        <div class="metric-lbl">partnerships</div>
       </div>
     </div>
-  </section>
+  </div>
+
+</section>
+
+<section id="skills">
+  <div class="section-label">Skills</div>
+
+  <div class="chip">Investigative distribution</div>
+  <div class="chip">Audience growth</div>
+  <div class="chip">Fact-checking</div>
+  <div class="chip">OSINT-adjacent research</div>
+  <div class="chip">Meta Ads</div>
+  <div class="chip">Cross-platform strategy</div>
+</section>
+
+<section id="contact">
+  <div class="section-label">Contact</div>
+
+  <p>Email: alyakozorezova@gmail.com</p>
+</section>
 
 </div>
-
-<footer>© 2025 Alia K</footer>
 
 </body>
 </html>
