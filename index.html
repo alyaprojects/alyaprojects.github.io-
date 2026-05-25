@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alia Kozorezova — Investigative Media & Audience Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --ink-mid: #4a4a46;
+    --ink-light: #8a8a84;
+    --paper: #f5f3ee;
+    --paper-warm: #ede9e0;
+    --accent: #c8341a;
+    --accent-soft: #f0e8e5;
+    --line: rgba(26,26,24,0.12);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Layout ── */
+  .container { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ── Nav ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    padding: 1rem 0;
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .nav-name { font-family: var(--serif); font-size: 1rem; letter-spacing: .01em; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-size: .8rem; text-decoration: none; color: var(--ink-mid); letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── Hero ── */
+  .hero { padding: 7rem 0 5rem; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    margin-bottom: 1.5rem;
+    max-width: 640px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+    max-width: 540px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  /* Callout block */
+  .callout {
+    border-left: 2px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    background: var(--accent-soft);
+    border-radius: 0 6px 6px 0;
+  }
+  .callout-item {
+    display: flex; align-items: baseline; gap: .75rem;
+    font-size: .9rem; color: var(--ink);
+    padding: .3rem 0;
+  }
+  .callout-item strong { font-weight: 500; min-width: 130px; }
+  .callout-item::before { content: '→'; color: var(--accent); font-size: .85rem; flex-shrink: 0; }
+
+  /* ── Sections ── */
+  section { padding: 5rem 0; border-top: 1px solid var(--line); }
+
+  .section-label {
+    font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-light); margin-bottom: 2.5rem;
+    display: flex; align-items: center; gap: .75rem;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+  h2 { font-family: var(--serif); font-size: 1.9rem; line-height: 1.2; margin-bottom: 1.25rem; }
+  h3 { font-family: var(--serif); font-size: 1.4rem; line-height: 1.25; margin-bottom: .75rem; }
+
+  p { color: var(--ink-mid); margin-bottom: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── About ── */
+  .about-body { max-width: 600px; }
+
+  /* ── Case studies ── */
+  .case { margin-bottom: 4rem; }
+  .case:last-child { margin-bottom: 0; }
+
+  .case-header { margin-bottom: 2rem; }
+  .case-role-badge {
+    display: inline-block;
+    font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); border: 1px solid var(--accent);
+    padding: .25rem .75rem; border-radius: 100px; margin-bottom: .75rem;
+  }
+
+  .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+  @media(max-width: 560px) { .case-grid { grid-template-columns: 1fr; } }
+
+  .case-block-label {
+    font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-light); margin-bottom: .75rem;
+  }
+
+  ul.task-list { list-style: none; padding: 0; }
+  ul.task-list li {
+    font-size: .9rem; color: var(--ink-mid);
+    padding: .35rem 0; border-bottom: 1px solid var(--line);
+    display: flex; gap: .6rem; align-items: baseline;
+    line-height: 1.5;
+  }
+  ul.task-list li::before { content: '–'; color: var(--ink-light); flex-shrink: 0; }
+  ul.task-list li:last-child { border-bottom: none; }
+
+  /* Metrics row */
+  .metrics-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .metric-box {
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: .75rem 1.1rem;
+    min-width: 120px;
+    flex: 1;
+  }
+  .metric-val { font-family: var(--serif); font-size: 1.6rem; color: var(--ink); line-height: 1.1; }
+  .metric-lbl { font-size: .75rem; color: var(--ink-light); margin-top: .25rem; line-height: 1.4; }
+
+  .strength-note {
+    margin-top: 1.75rem;
+    background: var(--paper-warm);
+    border-left: 2px solid var(--ink);
+    padding: .9rem 1.2rem;
+    font-size: .875rem;
+    color: var(--ink-mid);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+  }
+
+  /* ── Skills ── */
+  .chips { display: flex; flex-wrap: wrap; gap: .6rem; }
+  .chip {
+    font-size: .82rem;
+    padding: .4rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    color: var(--ink-mid);
+    background: var(--paper);
+    letter-spacing: .01em;
+    transition: border-color .2s, color .2s;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Tools ── */
+  .tools-list {
+    font-size: .9rem; color: var(--ink-mid);
+    display: flex; flex-wrap: wrap; gap: .5rem 1.5rem;
+  }
+  .tools-list span { position: relative; }
+  .tools-list span:not(:last-child)::after { content: '·'; position: absolute; right: -.9rem; color: var(--ink-light); }
+
+  /* ── Contact ── */
+  .contact-box {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 12px;
+    padding: 2.5rem 2.5rem;
+  }
+  .contact-box h2 { color: var(--paper); margin-bottom: .75rem; }
+  .contact-box .sub { color: rgba(245,243,238,.6); font-size: .95rem; margin-bottom: 2rem; }
+  .contact-links { display: flex; flex-direction: column; gap: .75rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: .75rem;
+    color: var(--paper); text-decoration: none;
+    font-size: .9rem; transition: opacity .2s;
+  }
+  .contact-link:hover { opacity: .65; }
+  .contact-link-icon { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(245,243,238,.4); min-width: 70px; }
+
+  /* ── Footer ── */
+  footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--line);
+    font-size: .8rem;
+    color: var(--ink-light);
+    text-align: center;
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp .6s ease both; }
+  .hero .hero-eyebrow { animation-delay: .05s; }
+  .hero h1 { animation-delay: .15s; }
+  .hero .hero-sub { animation-delay: .25s; }
+  .hero .callout { animation-delay: .35s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <span class="nav-name">Alia Kozorezova</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#cases">Cases</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero" id="hero" style="border-top:none;">
+    <div class="hero-eyebrow">Investigative Media · Audience Growth · Content Distribution</div>
+    <h1>Alia Kozorezova —<br><em>Investigative Media</em><br>&amp; Audience Development</h1>
+    <p class="hero-sub">I work at the intersection of investigative storytelling, audience growth, and cross-platform content distribution for high-sensitivity political and social topics.</p>
+    <div class="callout">
+      <div class="callout-item"><strong>+14,000 subscribers</strong> Telegram growth (Behar)</div>
+      <div class="callout-item"><strong>100+ collaborations</strong> media partnerships (DOXA)</div>
+      <div class="callout-item"><strong>40+ partnerships</strong> migration &amp; legal media space</div>
+      <div class="callout-item"><strong>Fact-checking</strong> editorial adaptation of investigative content</div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <div class="about-body">
+      <h2>Media specialist at the edge of investigative journalism</h2>
+      <p>Media and communications specialist working with investigative journalism environments and high-sensitivity public-interest content. Focus on audience development, cross-platform distribution, and editorial adaptation of complex political, legal, and social information.</p>
+      <p>Experienced in working with Russian- and English-language sources, with strong emphasis on fact-checking, clarity, and structured communication.</p>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section id="cases">
+    <div class="section-label">Case studies</div>
+
+    <!-- DOXA -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-role-badge">Partnerships &amp; Audience Development · 2023–2024</span>
+        <h2>DOXA — Investigative Content Distribution &amp; Audience Growth</h2>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-box"><div class="metric-val">100+</div><div class="metric-lbl">media collaborations &amp; campaigns</div></div>
+        <div class="metric-box"><div class="metric-val">~800</div><div class="metric-lbl">Telegram subscribers from single SOTA collab</div></div>
+        <div class="metric-box"><div class="metric-val">10+</div><div class="metric-lbl">Meta ad campaigns</div></div>
+        <div class="metric-box"><div class="metric-val">2–5</div><div class="metric-lbl">investigative stories distributed weekly</div></div>
+      </div>
+
+      <div class="case-grid" style="margin-top:2rem;">
+        <div>
+          <div class="case-block-label">What I did</div>
+          <ul class="task-list">
+            <li>Managed distribution of investigative content across 50+ media partners</li>
+            <li>Coordinated 2–5 investigative stories weekly across platforms</li>
+            <li>Built audience growth systems through partnerships and cross-media collaboration</li>
+            <li>Ran editorial pitching pipeline for time-sensitive investigative content</li>
+            <li>Executed cross-platform promotion (Telegram + social media + partner media)</li>
+            <li>Performed fact-checking of partner materials and promotional editorial content</li>
+          </ul>
+        </div>
+        <div>
+          <div class="case-block-label">Results</div>
+          <ul class="task-list">
+            <li>100+ media collaborations and campaigns</li>
+            <li>10+ Meta ad campaigns driving thousands of views</li>
+            <li>~800 Telegram subscribers from a single collaboration (SOTA)</li>
+            <li>Weekly distribution of investigative reporting content</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="strength-note">Key strength: Investigative content distribution + audience amplification across independent media ecosystem</div>
+    </div>
+
+    <!-- BEHAR -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-role-badge">Content &amp; Audience Development Lead · 2022–2023</span>
+        <h2>Behar International Counsel — Migration &amp; Legal Content Growth</h2>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-box"><div class="metric-val">+14K</div><div class="metric-lbl">Telegram subscribers in 12 months</div></div>
+        <div class="metric-box"><div class="metric-val">80+</div><div class="metric-lbl">clients for paid consultation programs</div></div>
+        <div class="metric-box"><div class="metric-val">40+</div><div class="metric-lbl">media partnerships &amp; integrations</div></div>
+        <div class="metric-box"><div class="metric-val">15+</div><div class="metric-lbl">structured content series</div></div>
+      </div>
+
+      <div class="case-grid" style="margin-top:2rem;">
+        <div>
+          <div class="case-block-label">What I did</div>
+          <ul class="task-list">
+            <li>Built content strategy for Telegram-based migration/legal platform</li>
+            <li>Managed full content production cycle (explainers, cards, interactive formats, live sessions)</li>
+            <li>Translated and adapted English-language legal sources into Russian-language content</li>
+            <li>Coordinated 40+ partnerships, paid integrations, and cross-community campaigns</li>
+            <li>Moderated weekly live sessions and community engagement</li>
+            <li>Built structured educational content system for high-sensitivity audiences</li>
+          </ul>
+        </div>
+        <div>
+          <div class="case-block-label">Results</div>
+          <ul class="task-list">
+            <li>+14,000 Telegram subscribers in 12 months</li>
+            <li>80+ clients acquired for paid consultation programs</li>
+            <li>40+ media partnerships and integrations</li>
+            <li>15+ structured content series (guides, explainers, visual formats)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="strength-note">Key strength: High-sensitivity content systems + trust-based audience growth + legal information adaptation</div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Skills</div>
+    <h2 style="margin-bottom:1.5rem;">Areas of expertise</h2>
+    <div class="chips">
+      <span class="chip">Investigative content distribution</span>
+      <span class="chip">Audience growth strategy (Telegram, social media)</span>
+      <span class="chip">Fact-checking &amp; editorial verification</span>
+      <span class="chip">OSINT-adjacent research</span>
+      <span class="chip">Meta Ads / targeted campaigns</span>
+      <span class="chip">Cross-platform storytelling</span>
+      <span class="chip">English ↔ Russian content adaptation</span>
+      <span class="chip">High-sensitivity communications</span>
+    </div>
+
+    <div style="margin-top:2.5rem;">
+      <div class="case-block-label" style="margin-bottom:1rem;">Tools</div>
+      <div class="tools-list">
+        <span>Meta Ads Manager</span>
+        <span>Figma</span>
+        <span>Canva</span>
+        <span>Adobe Premiere Pro</span>
+        <span>Telegram ecosystems</span>
+        <span>Content planning tools</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <div class="contact-box">
+      <h2>Available for new projects</h2>
+      <p class="sub">Open to roles in investigative media, communications, and audience development.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:alyakozorezova@gmail.com">
+          <span class="contact-link-icon">Email</span>
+          alyakozorezova@gmail.com
+        </a>
+        <a class="contact-link" href="https://t.me/+37441202314">
+          <span class="contact-link-icon">Telegram</span>
+          +374 41 20 23 14
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">© 2025 Alia Kozorezova</div>
+</footer>
+
+</body>
+</html>
