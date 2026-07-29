@@ -16,9 +16,10 @@
     --muted: rgba(255,255,255,0.45);
     --line: rgba(255,255,255,0.15);
     --card: rgba(255,255,255,0.05);
-    --blue: #7aa2ff;
-    --blue-line: rgba(122,162,255,0.5);
-    --blue-card: rgba(122,162,255,0.08);
+    --blue: #2f7dff;
+    --blue-line: rgba(47,125,255,0.75);
+    --blue-card: rgba(47,125,255,0.14);
+    --blue-glow: 0 0 14px rgba(47,125,255,0.45), 0 0 2px rgba(47,125,255,0.6);
     --serif: 'Playfair Display', Georgia, serif;
     --sans: 'Inter', system-ui, sans-serif;
   }
@@ -38,7 +39,7 @@
 
   /* HERO */
   .hero { padding: 8rem 0 5rem; }
-  .hero-eyebrow { display: inline-block; font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); border-radius: 100px; padding: .5rem 1.2rem; margin-bottom: 2rem; }
+  .hero-eyebrow { display: inline-block; font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); box-shadow: var(--blue-glow); border-radius: 100px; padding: .5rem 1.2rem; margin-bottom: 2rem; }
   h1 { font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 400; line-height: 1.1; letter-spacing: -.015em; margin-bottom: 1.75rem; }
   h1 em { font-style: italic; }
   .hero-sub { font-size: 1.15rem; color: var(--soft); max-width: 520px; line-height: 1.8; margin-bottom: 3.5rem; }
@@ -50,19 +51,18 @@
   .callout-desc { font-size: 1rem; color: var(--soft); }
 
   /* SECTIONS */
-  section { padding: 5rem 0; border-top: 1px solid var(--line); }
+  section { padding: 5rem 0; }
   .section-label { display: flex; align-items: center; gap: .75rem; margin-bottom: 2.5rem; }
-  .section-label-text { font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); border-radius: 100px; padding: .45rem 1.1rem; }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .section-label-text { font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); box-shadow: var(--blue-glow); border-radius: 100px; padding: .45rem 1.1rem; }
 
   h2 { font-family: var(--serif); font-size: clamp(1.75rem, 3.8vw, 2.4rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.25rem; }
   p { color: var(--soft); margin-bottom: 1rem; font-size: 1.05rem; line-height: 1.75; }
   p:last-child { margin-bottom: 0; }
 
   /* CASE */
-  .case { padding-bottom: 4rem; margin-bottom: 4rem; border-bottom: 1px solid var(--line); }
-  .case:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .case-badge { display: inline-block; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); padding: .35rem 1rem; border-radius: 100px; margin-bottom: .9rem; }
+  .case { padding-bottom: 4rem; margin-bottom: 4rem; }
+  .case:last-child { margin-bottom: 0; padding-bottom: 0; }
+  .case-badge { display: inline-block; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); box-shadow: var(--blue-glow); padding: .35rem 1rem; border-radius: 100px; margin-bottom: .9rem; }
   .case-title { font-family: var(--serif); font-style: italic; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 400; line-height: 1.05; margin-bottom: .5rem; }
   .case-subtitle { font-size: 1.02rem; color: var(--muted); margin-bottom: 2rem; }
 
@@ -103,10 +103,39 @@
   .story-name { font-size: .95rem; font-weight: 500; color: var(--white); margin-bottom: .4rem; }
   .story-desc { font-size: .9rem; color: var(--muted); line-height: 1.55; margin: 0; }
 
+  /* FOLDER CARDS */
+  .story-folder-card { position: relative; margin-top: 1rem; }
+  .story-folder-tab { position: absolute; top: -14px; left: 1.4rem; width: 42%; height: 18px; background: var(--blue); border-radius: 7px 7px 0 0; box-shadow: var(--blue-glow); }
+  .story-folder { display: block; width: 100%; text-align: left; background: linear-gradient(165deg, #131a30 0%, #0c1120 100%); border: 1px solid var(--blue-line); border-radius: 10px; padding: 1.6rem 1.3rem 1.4rem; cursor: pointer; transition: box-shadow .2s, border-color .2s, transform .2s; font-family: var(--sans); }
+  .story-folder:hover { box-shadow: var(--blue-glow); transform: translateY(-2px); }
+  .story-folder:disabled, .story-folder.is-disabled { cursor: default; opacity: .55; }
+  .story-folder:disabled:hover, .story-folder.is-disabled:hover { box-shadow: none; transform: none; }
+  .story-folder-icon { margin-bottom: 1.1rem; }
+  .story-folder-name { font-size: .98rem; font-weight: 500; color: var(--white); line-height: 1.35; margin-bottom: .4rem; }
+  .story-folder-count { font-size: .82rem; color: var(--muted); }
+
+  /* STORY VIEWER */
+  .story-viewer { position: fixed; inset: 0; z-index: 1000; background: #000; display: none; align-items: center; justify-content: center; }
+  .story-viewer.open { display: flex; }
+  .story-viewer-frame { position: relative; width: 100%; max-width: 420px; height: 100%; max-height: 100vh; background: #000; overflow: hidden; }
+  .story-viewer-progress { position: absolute; top: 12px; left: 12px; right: 12px; display: flex; gap: 4px; z-index: 5; }
+  .story-progress-seg { flex: 1; height: 3px; background: rgba(255,255,255,0.3); border-radius: 2px; overflow: hidden; }
+  .story-progress-seg .fill { height: 100%; width: 0%; background: #fff; }
+  .story-progress-seg.completed .fill { width: 100%; }
+  @keyframes storyFill { from { width: 0%; } to { width: 100%; } }
+  .story-viewer-close { position: absolute; top: 10px; right: 10px; z-index: 6; width: 34px; height: 34px; border: none; background: rgba(255,255,255,0.1); color: #fff; border-radius: 50%; font-size: 1.1rem; cursor: pointer; }
+  .story-viewer-close:hover { background: rgba(255,255,255,0.2); }
+  .story-viewer-img { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; }
+  .story-viewer-nav { position: absolute; inset: 0; display: flex; z-index: 4; }
+  .story-nav-zone { height: 100%; }
+  .story-nav-prev { width: 35%; cursor: w-resize; }
+  .story-nav-next { width: 65%; cursor: e-resize; }
+  .story-viewer-counter { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font-size: .75rem; color: rgba(255,255,255,0.55); z-index: 5; }
+
   /* SKILLS */
   .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
-  .chip { font-size: .92rem; padding: .45rem 1.1rem; border: 1px solid var(--line); border-radius: 100px; color: var(--soft); transition: border-color .2s, color .2s; cursor: default; }
-  .chip:hover { border-color: var(--white); color: var(--white); }
+  .chip { font-size: .92rem; padding: .45rem 1.1rem; border: 1px solid var(--blue-line); background: var(--blue-card); box-shadow: var(--blue-glow); border-radius: 100px; color: var(--soft); transition: box-shadow .2s, border-color .2s; cursor: default; }
+  .chip:hover { border-color: var(--blue); box-shadow: 0 0 20px rgba(47,125,255,0.6), 0 0 3px rgba(47,125,255,0.8); color: var(--white); }
   .tools-label, .lang-label { font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .9rem; margin-top: 2.5rem; }
   .tools-row, .lang-row { display: flex; flex-wrap: wrap; gap: .5rem; }
   .tools-row .chip, .lang-row .chip { font-size: .92rem; }
@@ -115,13 +144,13 @@
   .collab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   @media(max-width: 700px) { .collab-grid { grid-template-columns: 1fr; } }
   .collab-card { display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--card); transition: border-color .2s; }
-  .collab-card[href]:hover { border-color: var(--blue-line); }
+  .collab-card[href]:hover { border-color: var(--blue-line); box-shadow: var(--blue-glow); }
   .collab-img-wrap { aspect-ratio: 4/5; overflow: hidden; background: #111; }
   .collab-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .collab-info { padding: 1.1rem 1.2rem 1.35rem; }
   .collab-name { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: .5rem; line-height: 1.35; }
   .collab-desc { font-size: .9rem; color: var(--muted); line-height: 1.55; margin-bottom: .9rem; }
-  .collab-reach { display: inline-block; font-size: .82rem; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); border-radius: 100px; padding: .3rem .85rem; }
+  .collab-reach { display: inline-block; font-size: .82rem; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); box-shadow: var(--blue-glow); border-radius: 100px; padding: .3rem .85rem; }
   .collab-link-hint { font-size: .78rem; color: var(--muted); margin-top: .7rem; }
 
   /* CONTACT */
@@ -134,7 +163,7 @@
   .contact-link:hover .contact-link-val { color: var(--soft); }
 
   /* FOOTER */
-  footer { padding: 2rem 2.5rem; border-top: 1px solid var(--line); font-size: .85rem; color: var(--muted); }
+  footer { padding: 2rem 2.5rem; font-size: .85rem; color: var(--muted); }
 
   /* ANIM */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
@@ -145,6 +174,16 @@
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="folderGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8ecf2"/>
+      <stop offset="45%" stop-color="#b9c3d4"/>
+      <stop offset="100%" stop-color="#8b96ac"/>
+    </linearGradient>
+  </defs>
+</svg>
 
 <nav>
   <span class="nav-name">Alia K</span>
@@ -282,37 +321,37 @@
 
     <div class="stories-grid">
 
-      <div class="story-card">
-        <div class="story-preview story-preview-1">
-          <div class="story-preview-label">Экскурсия<br>по выставке<br>«Россия» на ВДНХ</div>
-          <div class="story-doxa-badge">DOXA</div>
-        </div>
-        <div class="story-info">
-          <div class="story-name">Выставка «Россия», ВДНХ</div>
-          <p class="story-desc">Придумала формат: экскурсия по пропагандистской выставке в сторис — каждый слайд = один стенд, критический взгляд изнутри.</p>
-        </div>
+      <div class="story-folder-card">
+        <div class="story-folder-tab"></div>
+        <button type="button" class="story-folder" onclick="openStory('vdnh')">
+          <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
+          </svg>
+          <div class="story-folder-name">Выставка «Россия»<br>на ВДНХ</div>
+          <div class="story-folder-count">9 сторис</div>
+        </button>
       </div>
 
-      <div class="story-card">
-        <div class="story-preview story-preview-2">
-          <div class="story-preview-label">Так могло бы<br>выглядеть<br>резюме<br>Ярослава</div>
-          <div class="story-doxa-badge">DOXA</div>
-        </div>
-        <div class="story-info">
-          <div class="story-name">Профиль Шамана</div>
-          <p class="story-desc">Придумала собрать CV Шамана — формат резюме как способ разобрать феномен государственного «артиста».</p>
-        </div>
+      <div class="story-folder-card">
+        <div class="story-folder-tab"></div>
+        <button type="button" class="story-folder is-disabled" disabled>
+          <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
+          </svg>
+          <div class="story-folder-name">Профиль Шамана</div>
+          <div class="story-folder-count">8 сторис</div>
+        </button>
       </div>
 
-      <div class="story-card">
-        <div class="story-preview story-preview-3">
-          <div class="story-preview-label">DOXA<br>на Patreon</div>
-          <div class="story-doxa-badge">DOXA</div>
-        </div>
-        <div class="story-info">
-          <div class="story-name">Patreon-кампания</div>
-          <p class="story-desc">Продвигающие сторис для запуска Patreon — с плейлистом, призывом к донатам и фирменным тоном DOXA.</p>
-        </div>
+      <div class="story-folder-card">
+        <div class="story-folder-tab"></div>
+        <button type="button" class="story-folder is-disabled" disabled>
+          <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
+          </svg>
+          <div class="story-folder-name">Patreon-кампания</div>
+          <div class="story-folder-count">Скоро</div>
+        </button>
       </div>
 
     </div>
@@ -360,7 +399,7 @@
 
     <div class="collab-grid">
 
-      <div class="collab-card">
+      <a class="collab-card" href="https://t.me/ArkHelps/15736" target="_blank" rel="noopener">
         <div class="collab-img-wrap">
           <img src="assets/collaborations/better-call-tatyana-x-kovcheg.jpeg" alt="Better Call Tatyana × Ковчег webinar announcement">
         </div>
@@ -368,10 +407,11 @@
           <div class="collab-name">Better Call Tatyana × Ковчег</div>
           <p class="collab-desc">Joint webinar on relocation and legalization in the US, hosted with immigration lawyer Tatyana Edwards-Behar.</p>
           <span class="collab-reach">300,000+ combined views</span>
+          <div class="collab-link-hint">View the announcement on Telegram →</div>
         </div>
-      </div>
+      </a>
 
-      <div class="collab-card">
+      <a class="collab-card" href="https://t.me/sotaproject/79425" target="_blank" rel="noopener">
         <div class="collab-img-wrap">
           <img src="assets/collaborations/give-doxa-x-sota.jpeg" alt="Give DOXA × SOTA giveaway announcement">
         </div>
@@ -379,8 +419,9 @@
           <div class="collab-name">Give DOXA × SOTA</div>
           <p class="collab-desc">Cross-promo giveaway campaign run jointly with SOTA to grow both audiences.</p>
           <span class="collab-reach">100,000+ combined views · 800 new subscribers</span>
+          <div class="collab-link-hint">View the announcement on Telegram →</div>
         </div>
-      </div>
+      </a>
 
       <a class="collab-card" href="https://www.instagram.com/reel/C-9olz0CVeL/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
         <div class="collab-img-wrap">
@@ -421,6 +462,127 @@
 </div>
 
 <footer>© 2025 Alia K</footer>
+
+<!-- STORY VIEWER -->
+<div class="story-viewer" id="storyViewer">
+  <div class="story-viewer-frame">
+    <div class="story-viewer-progress" id="storyProgress"></div>
+    <button type="button" class="story-viewer-close" id="storyClose" aria-label="Close">&times;</button>
+    <img class="story-viewer-img" id="storyImg" src="" alt="">
+    <div class="story-viewer-nav">
+      <div class="story-nav-zone story-nav-prev" id="storyPrev"></div>
+      <div class="story-nav-zone story-nav-next" id="storyNext"></div>
+    </div>
+    <div class="story-viewer-counter" id="storyCounter"></div>
+  </div>
+</div>
+
+<script>
+  var storySets = {
+    vdnh: {
+      title: 'Выставка «Россия» на ВДНХ',
+      images: [
+        'assets/stories/vdnh/slide-01.jpeg',
+        'assets/stories/vdnh/slide-02.jpeg',
+        'assets/stories/vdnh/slide-03.jpeg',
+        'assets/stories/vdnh/slide-04.jpeg',
+        'assets/stories/vdnh/slide-05.jpeg',
+        'assets/stories/vdnh/slide-06.jpeg',
+        'assets/stories/vdnh/slide-07.jpeg',
+        'assets/stories/vdnh/slide-08.jpeg',
+        'assets/stories/vdnh/slide-09.jpeg'
+      ]
+    }
+  };
+
+  var currentSet = null;
+  var currentIndex = 0;
+  var storyTimer = null;
+  var SLIDE_MS = 4500;
+
+  var viewerEl = document.getElementById('storyViewer');
+  var progressEl = document.getElementById('storyProgress');
+  var imgEl = document.getElementById('storyImg');
+  var counterEl = document.getElementById('storyCounter');
+
+  function openStory(key) {
+    var set = storySets[key];
+    if (!set) return;
+    currentSet = set;
+    currentIndex = 0;
+    buildProgress();
+    viewerEl.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    showSlide(0);
+  }
+
+  function buildProgress() {
+    progressEl.innerHTML = '';
+    currentSet.images.forEach(function () {
+      var seg = document.createElement('div');
+      seg.className = 'story-progress-seg';
+      var fill = document.createElement('div');
+      fill.className = 'fill';
+      seg.appendChild(fill);
+      progressEl.appendChild(seg);
+    });
+  }
+
+  function showSlide(i) {
+    clearTimeout(storyTimer);
+    if (!currentSet) return;
+    if (i < 0) i = 0;
+    if (i >= currentSet.images.length) { closeStory(); return; }
+    currentIndex = i;
+    imgEl.src = currentSet.images[i];
+    counterEl.textContent = (i + 1) + ' / ' + currentSet.images.length;
+
+    var segs = progressEl.querySelectorAll('.story-progress-seg');
+    segs.forEach(function (seg, idx) {
+      var fill = seg.querySelector('.fill');
+      seg.classList.remove('completed');
+      fill.style.animation = 'none';
+      fill.style.width = idx < i ? '100%' : '0%';
+      if (idx === i) {
+        void fill.offsetWidth;
+        fill.style.animation = 'storyFill ' + SLIDE_MS + 'ms linear forwards';
+      }
+    });
+
+    storyTimer = setTimeout(function () { showSlide(currentIndex + 1); }, SLIDE_MS);
+  }
+
+  function closeStory() {
+    clearTimeout(storyTimer);
+    viewerEl.classList.remove('open');
+    document.body.style.overflow = '';
+    currentSet = null;
+  }
+
+  document.getElementById('storyClose').addEventListener('click', closeStory);
+  document.getElementById('storyPrev').addEventListener('click', function () { showSlide(currentIndex - 1); });
+  document.getElementById('storyNext').addEventListener('click', function () { showSlide(currentIndex + 1); });
+  viewerEl.addEventListener('click', function (e) { if (e.target === viewerEl) closeStory(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!viewerEl.classList.contains('open')) return;
+    if (e.key === 'ArrowRight') showSlide(currentIndex + 1);
+    else if (e.key === 'ArrowLeft') showSlide(currentIndex - 1);
+    else if (e.key === 'Escape') closeStory();
+  });
+
+  var touchStartX = null;
+  viewerEl.addEventListener('touchstart', function (e) { touchStartX = e.changedTouches[0].clientX; });
+  viewerEl.addEventListener('touchend', function (e) {
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) showSlide(currentIndex + 1);
+      else showSlide(currentIndex - 1);
+    }
+    touchStartX = null;
+  });
+</script>
 
 </body>
 </html>
