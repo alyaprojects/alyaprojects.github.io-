@@ -63,14 +63,17 @@
   .case { padding-bottom: 4rem; margin-bottom: 4rem; }
   .case:last-child { margin-bottom: 0; padding-bottom: 0; }
   .case-badge { display: inline-block; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); box-shadow: var(--blue-glow); padding: .35rem 1rem; border-radius: 100px; margin-bottom: .9rem; }
-  .case-title { font-family: var(--serif); font-style: italic; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 400; line-height: 1.05; margin-bottom: .5rem; }
+  .case-title { font-family: var(--serif); font-style: italic; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 400; line-height: 1.05; }
+  .case-title-link { color: inherit; text-decoration: none; display: inline-flex; align-items: baseline; gap: .5rem; margin-bottom: .5rem; transition: color .2s; }
+  .case-title-link:hover { color: var(--blue); }
+  .case-title-arrow { font-family: var(--sans); font-style: normal; font-size: .55em; }
   .case-subtitle { font-size: 1.02rem; color: var(--muted); margin-bottom: 2rem; }
 
   /* Metrics */
   .metrics-row { display: flex; gap: 0; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; margin: 2rem 0; }
   .metric-box { flex: 1; padding: 1.25rem 1rem; border-right: 1px solid var(--line); text-align: left; }
   .metric-box:last-child { border-right: none; }
-  .metric-val { font-family: var(--serif); font-size: 2.05rem; font-weight: 400; color: var(--white); line-height: 1; margin-bottom: .35rem; }
+  .metric-val { font-family: var(--serif); font-size: 2.05rem; font-weight: 400; color: var(--blue); line-height: 1; margin-bottom: .35rem; }
   .metric-lbl { font-size: .85rem; color: var(--muted); line-height: 1.4; }
 
   /* Two-col grid */
@@ -134,9 +137,9 @@
 
   /* SKILLS */
   .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
-  .chip { font-size: .92rem; padding: .45rem 1.1rem; border: 1px solid var(--blue-line); background: var(--blue-card); box-shadow: var(--blue-glow); border-radius: 100px; color: var(--soft); transition: box-shadow .2s, border-color .2s; cursor: default; }
-  .chip:hover { border-color: var(--blue); box-shadow: 0 0 20px rgba(47,125,255,0.6), 0 0 3px rgba(47,125,255,0.8); color: var(--white); }
-  .tools-label, .lang-label { font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .9rem; margin-top: 2.5rem; }
+  .chip { font-size: .92rem; padding: .45rem 1.1rem; border: 1px solid var(--line); background: var(--card); border-radius: 100px; color: var(--soft); transition: box-shadow .2s, border-color .2s, background .2s, color .2s; cursor: default; }
+  .chip:hover { border-color: var(--blue); background: var(--blue-card); box-shadow: var(--blue-glow); color: var(--white); }
+  .skills-label, .tools-label, .lang-label { font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .9rem; margin-top: 2.5rem; }
   .tools-row, .lang-row { display: flex; flex-wrap: wrap; gap: .5rem; }
   .tools-row .chip, .lang-row .chip { font-size: .92rem; }
 
@@ -146,7 +149,8 @@
   .collab-card { display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--card); transition: border-color .2s; }
   .collab-card[href]:hover { border-color: var(--blue-line); box-shadow: var(--blue-glow); }
   .collab-img-wrap { aspect-ratio: 4/5; overflow: hidden; background: #111; }
-  .collab-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .collab-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .collab-img-wrap--center img { object-position: center; }
   .collab-info { padding: 1.1rem 1.2rem 1.35rem; }
   .collab-name { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: .5rem; line-height: 1.35; }
   .collab-desc { font-size: .9rem; color: var(--muted); line-height: 1.55; margin-bottom: .9rem; }
@@ -191,8 +195,8 @@
     <a href="#about">About</a>
     <a href="#cases">Cases</a>
     <a href="#stories">Stories</a>
-    <a href="#skills">Skills</a>
     <a href="#collaborations">Collaborations</a>
+    <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -239,7 +243,7 @@
     <!-- DOXA -->
     <div class="case">
       <span class="case-badge">Partnerships &amp; Audience Development · 2023–2024</span>
-      <div class="case-title">DOXA</div>
+      <a class="case-title-link" href="https://doxa.team/" target="_blank" rel="noopener"><span class="case-title">DOXA</span><span class="case-title-arrow">↗</span></a>
       <div class="case-subtitle">Investigative Content Distribution &amp; Audience Growth</div>
 
       <div class="metrics-row">
@@ -277,7 +281,7 @@
     <!-- BEHAR -->
     <div class="case">
       <span class="case-badge">Content &amp; Audience Development Lead · 2022–2023</span>
-      <div class="case-title">Behar</div>
+      <a class="case-title-link" href="https://t.me/USimmigrationlawyer" target="_blank" rel="noopener"><span class="case-title">Behar</span><span class="case-title-arrow">↗</span></a>
       <div class="case-subtitle">Migration &amp; Legal Content Growth — Behar International Counsel</div>
 
       <div class="metrics-row">
@@ -334,7 +338,7 @@
 
       <div class="story-folder-card">
         <div class="story-folder-tab"></div>
-        <button type="button" class="story-folder is-disabled" disabled>
+        <button type="button" class="story-folder" onclick="openStory('shaman')">
           <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
           </svg>
@@ -345,56 +349,21 @@
 
       <div class="story-folder-card">
         <div class="story-folder-tab"></div>
-        <button type="button" class="story-folder is-disabled" disabled>
+        <button type="button" class="story-folder" onclick="openStory('patreon')">
           <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
           </svg>
           <div class="story-folder-name">Patreon-кампания</div>
-          <div class="story-folder-count">Скоро</div>
+          <div class="story-folder-count">3 сторис</div>
         </button>
       </div>
 
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label"><span class="section-label-text">Skills</span></div>
-    <h2 style="margin-bottom:1.75rem;">Areas of expertise</h2>
-    <div class="chips">
-      <span class="chip">Investigative content distribution</span>
-      <span class="chip">Audience growth strategy</span>
-      <span class="chip">Telegram ecosystems</span>
-      <span class="chip">Fact-checking &amp; editorial verification</span>
-      <span class="chip">OSINT-adjacent research</span>
-      <span class="chip">Meta Ads / targeted campaigns</span>
-      <span class="chip">Cross-platform storytelling</span>
-      <span class="chip">English ↔ Russian content adaptation</span>
-      <span class="chip">High-sensitivity communications</span>
-    </div>
-    <div class="tools-label">Tools</div>
-    <div class="tools-row">
-      <span class="chip">Meta Ads Manager</span>
-      <span class="chip">Figma</span>
-      <span class="chip">Canva</span>
-      <span class="chip">Adobe Premiere Pro</span>
-      <span class="chip">Telegram ecosystems</span>
-      <span class="chip">Content planning tools</span>
-    </div>
-
-    <div class="lang-label">Languages</div>
-    <div class="lang-row">
-      <span class="chip">Russian — Native</span>
-      <span class="chip">English — C2</span>
-      <span class="chip">Spanish — B1</span>
-      <span class="chip">French — B1</span>
-    </div>
-  </section>
-
   <!-- COLLABORATIONS -->
   <section id="collaborations">
     <div class="section-label"><span class="section-label-text">Collaborations</span></div>
-    <h2 style="margin-bottom:.75rem;">Collaborations</h2>
     <p style="margin-bottom:2.5rem; max-width:560px;">Partnerships that expanded reach without additional budget.</p>
 
     <div class="collab-grid">
@@ -424,7 +393,7 @@
       </a>
 
       <a class="collab-card" href="https://www.instagram.com/reel/C-9olz0CVeL/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
-        <div class="collab-img-wrap">
+        <div class="collab-img-wrap collab-img-wrap--center">
           <img src="assets/collaborations/doxa-x-bloggers-reels.jpeg" alt="DOXA × bloggers Reels collaboration with Mari Margo">
         </div>
         <div class="collab-info">
@@ -435,6 +404,40 @@
         </div>
       </a>
 
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label"><span class="section-label-text">Skills</span></div>
+    <div class="skills-label" style="margin-top:0;">Areas of expertise</div>
+    <div class="chips">
+      <span class="chip">Investigative content distribution</span>
+      <span class="chip">Audience growth strategy</span>
+      <span class="chip">Telegram ecosystems</span>
+      <span class="chip">Fact-checking &amp; editorial verification</span>
+      <span class="chip">OSINT-adjacent research</span>
+      <span class="chip">Meta Ads / targeted campaigns</span>
+      <span class="chip">Cross-platform storytelling</span>
+      <span class="chip">English ↔ Russian content adaptation</span>
+      <span class="chip">High-sensitivity communications</span>
+    </div>
+    <div class="tools-label">Tools</div>
+    <div class="tools-row">
+      <span class="chip">Meta Ads Manager</span>
+      <span class="chip">Figma</span>
+      <span class="chip">Canva</span>
+      <span class="chip">Adobe Premiere Pro</span>
+      <span class="chip">Telegram ecosystems</span>
+      <span class="chip">Content planning tools</span>
+    </div>
+
+    <div class="lang-label">Languages</div>
+    <div class="lang-row">
+      <span class="chip">Russian — Native</span>
+      <span class="chip">English — C2</span>
+      <span class="chip">Spanish — B1</span>
+      <span class="chip">French — B1</span>
     </div>
   </section>
 
@@ -491,6 +494,27 @@
         'assets/stories/vdnh/slide-07.jpeg',
         'assets/stories/vdnh/slide-08.jpeg',
         'assets/stories/vdnh/slide-09.jpeg'
+      ]
+    },
+    shaman: {
+      title: 'Профиль Шамана',
+      images: [
+        'assets/stories/shaman/slide-01.jpeg',
+        'assets/stories/shaman/slide-02.jpeg',
+        'assets/stories/shaman/slide-03.jpeg',
+        'assets/stories/shaman/slide-04.jpeg',
+        'assets/stories/shaman/slide-05.jpeg',
+        'assets/stories/shaman/slide-06.jpeg',
+        'assets/stories/shaman/slide-07.jpeg',
+        'assets/stories/shaman/slide-08.jpeg'
+      ]
+    },
+    patreon: {
+      title: 'Patreon-кампания',
+      images: [
+        'assets/stories/patreon/slide-01.jpeg',
+        'assets/stories/patreon/slide-02.jpeg',
+        'assets/stories/patreon/slide-03.jpeg'
       ]
     }
   };
