@@ -43,7 +43,7 @@
   h1 { font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 400; line-height: 1.1; letter-spacing: -.015em; margin-bottom: 1.75rem; }
   h1 em { font-style: italic; }
   .hero-sub { font-size: 1.15rem; color: var(--soft); max-width: 520px; line-height: 1.8; margin-bottom: 3.5rem; }
-  .hero-tagline { font-size: 1rem; color: var(--blue); max-width: 480px; line-height: 1.6; margin-bottom: 1.5rem; font-style: italic; }
+  .hero-tagline { font-size: 1.3rem; color: #5b9aff; max-width: 560px; line-height: 1.6; margin-bottom: 3.5rem; font-style: italic; text-shadow: 0 0 18px rgba(91,154,255,0.35); }
 
   /* Callout / highlights */
   .callout { border-top: 1px solid var(--line); }
@@ -53,6 +53,11 @@
 
   /* SECTIONS */
   section { padding: 5rem 0; }
+
+  .about-layout { display: flex; gap: 2.5rem; align-items: flex-start; }
+  @media(max-width: 700px) { .about-layout { flex-direction: column; gap: 1.5rem; } }
+  .about-avatar { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: #fff; border: 1px solid var(--blue-line); box-shadow: var(--blue-glow); }
+  .about-text { flex: 1; min-width: 0; }
   .section-label { display: flex; align-items: center; gap: .75rem; margin-bottom: 2.5rem; }
   .section-label-text { font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); box-shadow: var(--blue-glow); border-radius: 100px; padding: .45rem 1.1rem; }
 
@@ -161,6 +166,8 @@
   .collab-info { padding: 1.1rem 1.2rem 1.35rem; display: flex; flex-direction: column; height: 100%; }
   .collab-name { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: .5rem; line-height: 1.35; }
   .collab-desc { font-size: .9rem; color: var(--muted); line-height: 1.55; margin-bottom: .9rem; flex: 1; }
+  .collab-desc a { color: var(--blue); font-style: italic; text-decoration: none; transition: opacity .2s; }
+  .collab-desc a:hover { opacity: .8; text-decoration: underline; }
   .collab-reach { display: inline-block; align-self: flex-start; font-size: .82rem; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); box-shadow: var(--blue-glow); border-radius: 100px; padding: .3rem .85rem; margin-top: auto; }
   .collab-link-hint { font-size: .78rem; color: var(--muted); margin-top: .7rem; text-decoration: none; display: inline-block; transition: color .2s; }
   a.collab-link-hint:hover { color: var(--blue); }
@@ -181,6 +188,7 @@
   @media(max-width: 700px) { .collab-featured-media--embed { height: 620px; } }
   .collab-list { display: flex; flex-direction: column; gap: 2rem; }
   .collab-list .collab-featured { margin-bottom: 0; }
+  .collab-more-note { margin-top: 2rem; font-size: .9rem; color: var(--muted); font-style: italic; }
   .collab-carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: none; background: rgba(0,0,0,0.55); color: #fff; font-size: 1.1rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; z-index: 3; }
   .collab-carousel-arrow:hover { background: rgba(0,0,0,0.85); }
   .collab-carousel-arrow.prev { left: 10px; }
@@ -239,41 +247,26 @@
 
   <!-- HERO -->
   <section class="hero" id="hero" style="border-top:none;">
-    <div class="hero-eyebrow">Investigative Media · Audience Growth · Content Distribution</div>
     <h1>Alia K —<br><em>Investigative Media</em><br>&amp; Audience Development</h1>
-    <p class="hero-tagline">Documenting state violence. Amplifying resistance. Standing with people inside Russia.</p>
-    <p class="hero-sub">I work at the intersection of investigative storytelling, audience growth, and cross-platform content distribution for high-sensitivity political and social topics.</p>
-    <div class="callout">
-      <div class="callout-row">
-        <span class="callout-num">+14,000</span>
-        <span class="callout-desc">Telegram subscribers grown in 12 months (Behar)</span>
-      </div>
-      <div class="callout-row">
-        <span class="callout-num">100+</span>
-        <span class="callout-desc">media collaborations and campaigns (DOXA)</span>
-      </div>
-      <div class="callout-row">
-        <span class="callout-num">40+</span>
-        <span class="callout-desc">partnerships in migration &amp; legal media space</span>
-      </div>
-      <div class="callout-row">
-        <span class="callout-num">Fact-checking</span>
-        <span class="callout-desc">editorial adaptation of investigative content</span>
-      </div>
-    </div>
+    <p class="hero-tagline">Documenting&nbsp;state&nbsp;violence. Amplifying&nbsp;resistance. Standing&nbsp;with&nbsp;people&nbsp;inside&nbsp;Russia.</p>
   </section>
 
   <!-- ABOUT -->
   <section id="about">
     <div class="section-label"><span class="section-label-text">About</span></div>
-    <h2>Media specialist at the edge<br>of investigative journalism</h2>
-    <p style="max-width:580px;">Media and communications specialist working with investigative journalism environments and high-sensitivity public-interest content. Focus on audience development, cross-platform distribution, and editorial adaptation of complex political, legal, and social information.</p>
-    <p style="max-width:580px;">Experienced in working with Russian- and English-language sources, with strong emphasis on fact-checking, clarity, and structured communication.</p>
+    <div class="about-layout">
+      <img class="about-avatar" src="assets/about/avatar.png" alt="Alia K illustrated avatar">
+      <div class="about-text">
+        <h2>Media specialist at&nbsp;the edge<br>of&nbsp;investigative journalism</h2>
+        <p style="max-width:580px;">I&nbsp;work at&nbsp;the intersection of&nbsp;investigative storytelling, audience growth, and&nbsp;cross-platform content distribution for&nbsp;high-sensitivity political and&nbsp;social topics. Focus on&nbsp;building different formats of&nbsp;editorial content that translate complex political, legal, and&nbsp;social information into&nbsp;clear, engaging narratives.</p>
+        <p style="max-width:580px;">Experienced in&nbsp;working with&nbsp;Russian- and&nbsp;English-language sources, with&nbsp;strong emphasis on&nbsp;fact-checking, clarity, and&nbsp;structured communication.</p>
+      </div>
+    </div>
   </section>
 
   <!-- CASES -->
   <section id="cases">
-    <div class="section-label"><span class="section-label-text">Case studies</span></div>
+    <div class="section-label"><span class="section-label-text">Cases</span></div>
 
     <!-- DOXA -->
     <div class="case">
@@ -368,7 +361,11 @@
         </div>
       </div>
 
-      <div class="col-label" style="margin-top:2.5rem;">Nika's testimonial about my work 💙</div>
+      <div class="col-label" style="margin-top:2.5rem; display:flex; align-items:center; gap:.5rem;">Nika's testimonial about my work
+        <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 4px rgba(47,125,255,0.8));">
+          <path d="M9 15C9 15 1 10.2 1 5.2C1 2.9 2.9 1 5.2 1C6.7 1 8.1 1.8 9 3C9.9 1.8 11.3 1 12.8 1C15.1 1 17 2.9 17 5.2C17 10.2 9 15 9 15Z" fill="#2f7dff"/>
+        </svg>
+      </div>
       <div class="video-embed">
         <iframe src="https://www.youtube.com/embed/l0a-gdZPBjg?start=1137&end=1207" title="Nika's public testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
@@ -379,8 +376,7 @@
   <!-- STORIES -->
   <section id="stories">
     <div class="section-label"><span class="section-label-text">Content formats</span></div>
-    <h2 style="margin-bottom:.75rem;">Promotional stories and reels</h2>
-    <p style="margin-bottom:2.5rem; max-width:520px;">Investigative and editorial stories created for DOXA's audience — turning complex reporting into engaging, shareable social content.</p>
+    <p style="margin-bottom:2.5rem; max-width:520px;">Stories, reels and cards turning complex reporting into engaging, shareable social content.</p>
 
     <div class="content-format-group">
       <div class="tools-label" style="margin-top:0;">Promotional stories</div>
@@ -420,7 +416,7 @@
             <iframe src="https://www.instagram.com/reel/C-9olz0CVeL/embed" title="DOXA × Mari Margo Reels collaboration" loading="lazy" allowtransparency="true" allowfullscreen></iframe>
           </div>
           <div class="collab-featured-info">
-            <div class="collab-name">DOXA × Bloggers in Reels</div>
+            <div class="collab-name">DOXA × Mari Margo</div>
             <p class="collab-desc">Collaboration with blogger Mari Margo, adapting DOXA's <a href="https://doxa.team/articles/druzhba" target="_blank" rel="noopener">guide on how to make friends as an adult</a> into short-form video.</p>
             <span class="collab-reach">31K views</span>
             <a class="collab-link-hint" href="https://www.instagram.com/reel/C-9olz0CVeL/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">View the reel on Instagram →</a>
@@ -518,41 +514,6 @@
     <div class="collab-list">
 
       <div class="collab-featured">
-        <div class="collab-featured-media collab-featured-media--contain" data-images='["assets/collaborations/govorit-respublika/slide-01.png","assets/collaborations/govorit-respublika/slide-02.png","assets/collaborations/govorit-respublika/slide-03.png","assets/collaborations/govorit-respublika/slide-04.png","assets/collaborations/govorit-respublika/slide-05.png","assets/collaborations/govorit-respublika/slide-06.png","assets/collaborations/govorit-respublika/slide-07.png"]' data-index="0">
-          <img src="assets/collaborations/govorit-respublika/slide-01.png" alt="DOXA × Asians of Russia × «говорит республика_» — podcast launch">
-          <button type="button" class="collab-carousel-arrow prev" onclick="shiftCarousel(this, -1)" aria-label="Previous slide">‹</button>
-          <button type="button" class="collab-carousel-arrow next" onclick="shiftCarousel(this, 1)" aria-label="Next slide">›</button>
-          <div class="collab-featured-dots">
-            <span class="collab-dot active"></span>
-            <span class="collab-dot"></span>
-            <span class="collab-dot"></span>
-            <span class="collab-dot"></span>
-            <span class="collab-dot"></span>
-            <span class="collab-dot"></span>
-            <span class="collab-dot"></span>
-          </div>
-        </div>
-        <div class="collab-featured-info">
-          <div class="collab-name">DOXA × Asians of Russia × «говорит республика_»</div>
-          <p class="collab-desc">Cross-media launch for the first Russian-language podcast about Asia's national republics within Russia — co-produced with Asians of Russia and podcast author Danhayaa Hovalyg.</p>
-          <span class="collab-reach">Featured collaboration</span>
-          <a class="collab-link-hint" href="https://www.instagram.com/p/C2Z3ZHXizta/?utm_source=ig_web_copy_link&amp;igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">View the post on Instagram →</a>
-        </div>
-      </div>
-
-      <div class="collab-featured">
-        <div class="collab-featured-media collab-featured-media--embed">
-          <iframe src="https://www.instagram.com/reel/C-9olz0CVeL/embed" title="DOXA × Mari Margo Reels collaboration" loading="lazy" allowtransparency="true" allowfullscreen></iframe>
-        </div>
-        <div class="collab-featured-info">
-          <div class="collab-name">DOXA × Bloggers in Reels</div>
-          <p class="collab-desc">Collaboration with blogger Mari Margo, adapting DOXA's <a href="https://doxa.team/articles/druzhba" target="_blank" rel="noopener">guide on how to make friends as an adult</a> into short-form video.</p>
-          <span class="collab-reach">31K views</span>
-          <a class="collab-link-hint" href="https://www.instagram.com/reel/C-9olz0CVeL/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">View the reel on Instagram →</a>
-        </div>
-      </div>
-
-      <div class="collab-featured">
         <div class="collab-featured-media">
           <img src="assets/collaborations/better-call-tatyana-x-kovcheg.jpeg" alt="Better Call Tatyana × Ковчег webinar announcement">
         </div>
@@ -577,6 +538,7 @@
       </div>
 
     </div>
+    <p class="collab-more-note">More collaboration examples coming soon.</p>
   </section>
 
   <!-- SKILLS -->
