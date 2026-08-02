@@ -57,11 +57,6 @@
   /* SECTIONS */
   section { padding: 5rem 0; }
 
-  .about-layout { display: flex; gap: 2.5rem; align-items: flex-start; }
-  @media(max-width: 700px) { .about-layout { flex-direction: column; gap: 1.5rem; } }
-  .about-avatar { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: #fff; border: 1px solid var(--blue-line); box-shadow: var(--blue-glow); order: 2; }
-  .about-text { flex: 1; min-width: 0; order: 1; }
-  @media(max-width: 700px) { .about-avatar { order: 1; } .about-text { order: 2; } }
   .section-label { display: flex; align-items: center; gap: .75rem; margin-bottom: 2.5rem; }
   .section-label-text { font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--blue-line); background: var(--blue-card); box-shadow: var(--blue-glow); border-radius: 100px; padding: .45rem 1.1rem; }
 
@@ -250,14 +245,9 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="section-label"><span class="section-label-text">About</span></div>
-    <div class="about-layout">
-      <img class="about-avatar" src="assets/about/avatar.png" alt="Alia K illustrated avatar">
-      <div class="about-text">
-        <h2>Media specialist at&nbsp;the edge<br>of&nbsp;investigative journalism</h2>
-        <p style="max-width:580px;">I&nbsp;work at&nbsp;the intersection of&nbsp;investigative storytelling, audience growth, and&nbsp;cross-platform content distribution for&nbsp;high-sensitivity political and&nbsp;social topics. Focus on&nbsp;building different formats of&nbsp;editorial content that translate complex political, legal, and&nbsp;social information into&nbsp;clear, engaging narratives.</p>
-        <p style="max-width:580px;">Experienced in&nbsp;working with&nbsp;Russian- and&nbsp;English-language sources, with&nbsp;strong emphasis on&nbsp;fact-checking, clarity, and&nbsp;structured communication.</p>
-      </div>
-    </div>
+    <h2>Media specialist at&nbsp;the edge<br>of&nbsp;investigative journalism</h2>
+    <p style="max-width:580px;">I&nbsp;work at&nbsp;the intersection of&nbsp;investigative storytelling, audience growth, and&nbsp;cross-platform content distribution for&nbsp;high-sensitivity political and&nbsp;social topics. Focus on&nbsp;building different formats of&nbsp;editorial content that translate complex political, legal, and&nbsp;social information into&nbsp;clear, engaging narratives.</p>
+    <p style="max-width:580px;">Experienced in&nbsp;working with&nbsp;Russian- and&nbsp;English-language sources, with&nbsp;strong emphasis on&nbsp;fact-checking, clarity, and&nbsp;structured communication.</p>
   </section>
 
   <!-- CASES -->
@@ -456,12 +446,12 @@
 
         <div class="story-folder-card">
           <div class="story-folder-tab"></div>
-          <button type="button" class="story-folder is-disabled" disabled>
+          <button type="button" class="story-folder" onclick="openStory('trumpImmigration')">
             <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
             </svg>
             <div class="story-folder-name">Чего ждать иммигрантам от Трампа?</div>
-            <div class="story-folder-count">Coming soon</div>
+            <div class="story-folder-count">8 cards</div>
           </button>
         </div>
 
@@ -623,8 +613,8 @@
       title: 'Профиль Шамана',
       images: [
         'assets/stories/shaman/slide-01.jpeg',
-        'assets/stories/shaman/slide-02.jpeg',
         'assets/stories/shaman/slide-03.jpeg',
+        'assets/stories/shaman/slide-02.jpeg',
         'assets/stories/shaman/slide-04.jpeg',
         'assets/stories/shaman/slide-05.jpeg',
         'assets/stories/shaman/slide-06.jpeg',
@@ -640,6 +630,20 @@
         'assets/cards/education/slide-02.jpeg',
         'assets/cards/education/slide-03.jpeg',
         'assets/cards/education/slide-04.png'
+      ]
+    },
+    trumpImmigration: {
+      title: 'Чего ждать иммигрантам от Трампа?',
+      autoplay: false,
+      images: [
+        'assets/cards/trump-immigration/slide-01.png',
+        'assets/cards/trump-immigration/slide-02.png',
+        'assets/cards/trump-immigration/slide-03.png',
+        'assets/cards/trump-immigration/slide-04.png',
+        'assets/cards/trump-immigration/slide-05.png',
+        'assets/cards/trump-immigration/slide-06.png',
+        'assets/cards/trump-immigration/slide-07.png',
+        'assets/cards/trump-immigration/slide-08.png'
       ]
     }
   };
