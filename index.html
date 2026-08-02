@@ -43,6 +43,7 @@
   h1 { font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 400; line-height: 1.1; letter-spacing: -.015em; margin-bottom: 1.75rem; }
   h1 em { font-style: italic; }
   .hero-sub { font-size: 1.15rem; color: var(--soft); max-width: 520px; line-height: 1.8; margin-bottom: 3.5rem; }
+  .hero-tagline { font-size: 1rem; color: var(--blue); max-width: 480px; line-height: 1.6; margin-bottom: 1.5rem; font-style: italic; }
 
   /* Callout / highlights */
   .callout { border-top: 1px solid var(--line); }
@@ -94,6 +95,8 @@
   /* STORIES */
   .stories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   @media(max-width: 620px) { .stories-grid { grid-template-columns: 1fr; } }
+  .content-format-group { margin-bottom: 3rem; }
+  .content-format-group:last-child { margin-bottom: 0; }
   .story-card { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--card); }
   .story-preview {
     aspect-ratio: 9/16;
@@ -140,9 +143,7 @@
   .story-viewer-counter { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font-size: .75rem; color: rgba(255,255,255,0.55); z-index: 5; }
 
   /* SKILLS */
-  .chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin-bottom: 2.5rem; }
-  .chips .chip { text-align: center; }
-  @media(max-width: 700px) { .chips { grid-template-columns: repeat(2, 1fr); } }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem; }
   .chip { font-size: .92rem; padding: .45rem 1.1rem; border: 1px solid var(--line); background: var(--card); border-radius: 100px; color: var(--soft); transition: box-shadow .2s, border-color .2s, background .2s, color .2s; cursor: default; }
   .chip:hover { border-color: var(--blue); background: var(--blue-card); box-shadow: var(--blue-glow); color: var(--white); }
   .skills-label, .tools-label, .lang-label { font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .9rem; margin-top: 2.5rem; }
@@ -240,6 +241,7 @@
   <section class="hero" id="hero" style="border-top:none;">
     <div class="hero-eyebrow">Investigative Media · Audience Growth · Content Distribution</div>
     <h1>Alia K —<br><em>Investigative Media</em><br>&amp; Audience Development</h1>
+    <p class="hero-tagline">Documenting state violence. Amplifying resistance. Standing with people inside Russia.</p>
     <p class="hero-sub">I work at the intersection of investigative storytelling, audience growth, and cross-platform content distribution for high-sensitivity political and social topics.</p>
     <div class="callout">
       <div class="callout-row">
@@ -380,42 +382,131 @@
     <h2 style="margin-bottom:.75rem;">Promotional stories and reels</h2>
     <p style="margin-bottom:2.5rem; max-width:520px;">Investigative and editorial stories created for DOXA's audience — turning complex reporting into engaging, shareable social content.</p>
 
-    <div class="stories-grid">
+    <div class="content-format-group">
+      <div class="tools-label" style="margin-top:0;">Promotional stories</div>
+      <div class="stories-grid">
 
-      <div class="story-folder-card">
-        <div class="story-folder-tab"></div>
-        <button type="button" class="story-folder" onclick="openStory('vdnh')">
-          <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
-          </svg>
-          <div class="story-folder-name">Выставка «Россия»<br>на ВДНХ</div>
-          <div class="story-folder-count">9 stories</div>
-        </button>
+        <div class="story-folder-card">
+          <div class="story-folder-tab"></div>
+          <button type="button" class="story-folder" onclick="openStory('vdnh')">
+            <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
+            </svg>
+            <div class="story-folder-name">Выставка «Россия»<br>на ВДНХ</div>
+            <div class="story-folder-count">9 stories</div>
+          </button>
+        </div>
+
+        <div class="story-folder-card">
+          <div class="story-folder-tab"></div>
+          <button type="button" class="story-folder" onclick="openStory('shaman')">
+            <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
+            </svg>
+            <div class="story-folder-name">Профиль Шамана</div>
+            <div class="story-folder-count">8 stories</div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="content-format-group">
+      <div class="tools-label">Promotional reels</div>
+      <div class="collab-list">
+
+        <div class="collab-featured">
+          <div class="collab-featured-media collab-featured-media--embed">
+            <iframe src="https://www.instagram.com/reel/C-9olz0CVeL/embed" title="DOXA × Mari Margo Reels collaboration" loading="lazy" allowtransparency="true" allowfullscreen></iframe>
+          </div>
+          <div class="collab-featured-info">
+            <div class="collab-name">DOXA × Bloggers in Reels</div>
+            <p class="collab-desc">Collaboration with blogger Mari Margo, adapting DOXA's <a href="https://doxa.team/articles/druzhba" target="_blank" rel="noopener">guide on how to make friends as an adult</a> into short-form video.</p>
+            <span class="collab-reach">31K views</span>
+            <a class="collab-link-hint" href="https://www.instagram.com/reel/C-9olz0CVeL/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">View the reel on Instagram →</a>
+          </div>
+        </div>
+
+        <div class="collab-featured">
+          <div class="collab-featured-media collab-featured-media--embed">
+            <iframe src="https://www.instagram.com/reel/C0UOtSMCRIo/embed" title="DOXA × Ivan Astashin Reels collaboration" loading="lazy" allowtransparency="true" allowfullscreen></iframe>
+          </div>
+          <div class="collab-featured-info">
+            <div class="collab-name">DOXA × Ivan Astashin</div>
+            <p class="collab-desc">Reel featuring political prisoner Ivan Astashin, promoting DOXA's <a href="https://doxa.team/articles/political-abuse-of-psychiatry" target="_blank" rel="noopener">investigation into political abuse of psychiatry</a>.</p>
+            <span class="collab-reach">Promotional reel</span>
+            <a class="collab-link-hint" href="https://www.instagram.com/reel/C0UOtSMCRIo/?utm_source=ig_web_copy_link&amp;igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">View the reel on Instagram →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="content-format-group">
+      <div class="tools-label">Cards</div>
+      <div class="collab-list" style="margin-bottom:2rem;">
+
+        <div class="collab-featured">
+          <div class="collab-featured-media collab-featured-media--contain" data-images='["assets/collaborations/govorit-respublika/slide-01.png","assets/collaborations/govorit-respublika/slide-02.png","assets/collaborations/govorit-respublika/slide-03.png","assets/collaborations/govorit-respublika/slide-04.png","assets/collaborations/govorit-respublika/slide-05.png","assets/collaborations/govorit-respublika/slide-06.png","assets/collaborations/govorit-respublika/slide-07.png"]' data-index="0">
+            <img src="assets/collaborations/govorit-respublika/slide-01.png" alt="DOXA × Asians of Russia × «говорит республика_» — podcast launch">
+            <button type="button" class="collab-carousel-arrow prev" onclick="shiftCarousel(this, -1)" aria-label="Previous slide">‹</button>
+            <button type="button" class="collab-carousel-arrow next" onclick="shiftCarousel(this, 1)" aria-label="Next slide">›</button>
+            <div class="collab-featured-dots">
+              <span class="collab-dot active"></span>
+              <span class="collab-dot"></span>
+              <span class="collab-dot"></span>
+              <span class="collab-dot"></span>
+              <span class="collab-dot"></span>
+              <span class="collab-dot"></span>
+              <span class="collab-dot"></span>
+            </div>
+          </div>
+          <div class="collab-featured-info">
+            <div class="collab-name">DOXA × Asians of Russia × «говорит республика_»</div>
+            <p class="collab-desc">Cross-media launch for the first Russian-language podcast about Asia's national republics within Russia — co-produced with Asians of Russia and podcast author Danhayaa Hovalyg.</p>
+            <span class="collab-reach">Featured collaboration</span>
+            <a class="collab-link-hint" href="https://www.instagram.com/p/C2Z3ZHXizta/?utm_source=ig_web_copy_link&amp;igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">View the post on Instagram →</a>
+          </div>
+        </div>
+
       </div>
 
-      <div class="story-folder-card">
-        <div class="story-folder-tab"></div>
-        <button type="button" class="story-folder" onclick="openStory('shaman')">
-          <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
-          </svg>
-          <div class="story-folder-name">Профиль Шамана</div>
-          <div class="story-folder-count">8 stories</div>
-        </button>
-      </div>
+      <div class="stories-grid">
 
-      <div class="story-folder-card">
-        <div class="story-folder-tab"></div>
-        <button type="button" class="story-folder is-disabled" disabled>
-          <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
-          </svg>
-          <div class="story-folder-name">Интервью с анархистом</div>
-          <div class="story-folder-count">Reel featuring the article's author</div>
-        </button>
-        <a class="collab-link-hint" href="https://doxa.team/articles/lev-skoryakin" target="_blank" rel="noopener" style="display:block; margin-top:.7rem;">Read the promoted interview →</a>
-      </div>
+        <div class="story-folder-card">
+          <div class="story-folder-tab"></div>
+          <button type="button" class="story-folder is-disabled" disabled>
+            <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
+            </svg>
+            <div class="story-folder-name">Чего ждать иммигрантам от Трампа?</div>
+            <div class="story-folder-count">Coming soon</div>
+          </button>
+        </div>
 
+        <div class="story-folder-card">
+          <div class="story-folder-tab"></div>
+          <button type="button" class="story-folder is-disabled" disabled>
+            <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
+            </svg>
+            <div class="story-folder-name">Как иммигрировать в США после отмены Title 42?</div>
+            <div class="story-folder-count">Coming soon</div>
+          </button>
+        </div>
+
+        <div class="story-folder-card">
+          <div class="story-folder-tab"></div>
+          <button type="button" class="story-folder is-disabled" disabled>
+            <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
+            </svg>
+            <div class="story-folder-name">Карточки для образовательных проектов</div>
+            <div class="story-folder-count">Coming soon</div>
+          </button>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -427,11 +518,11 @@
     <div class="collab-list">
 
       <div class="collab-featured">
-        <div class="collab-featured-media collab-featured-media--contain">
-          <img id="repMedia" src="assets/collaborations/govorit-respublika/slide-01.png" alt="DOXA × Asians of Russia × «говорит республика_» — podcast launch">
-          <button type="button" class="collab-carousel-arrow prev" onclick="repShift(-1)" aria-label="Previous slide">‹</button>
-          <button type="button" class="collab-carousel-arrow next" onclick="repShift(1)" aria-label="Next slide">›</button>
-          <div class="collab-featured-dots" id="repDots">
+        <div class="collab-featured-media collab-featured-media--contain" data-images='["assets/collaborations/govorit-respublika/slide-01.png","assets/collaborations/govorit-respublika/slide-02.png","assets/collaborations/govorit-respublika/slide-03.png","assets/collaborations/govorit-respublika/slide-04.png","assets/collaborations/govorit-respublika/slide-05.png","assets/collaborations/govorit-respublika/slide-06.png","assets/collaborations/govorit-respublika/slide-07.png"]' data-index="0">
+          <img src="assets/collaborations/govorit-respublika/slide-01.png" alt="DOXA × Asians of Russia × «говорит республика_» — podcast launch">
+          <button type="button" class="collab-carousel-arrow prev" onclick="shiftCarousel(this, -1)" aria-label="Previous slide">‹</button>
+          <button type="button" class="collab-carousel-arrow next" onclick="shiftCarousel(this, 1)" aria-label="Next slide">›</button>
+          <div class="collab-featured-dots">
             <span class="collab-dot active"></span>
             <span class="collab-dot"></span>
             <span class="collab-dot"></span>
@@ -508,6 +599,11 @@
       <span class="chip">Figma</span>
       <span class="chip">Canva</span>
       <span class="chip">Adobe Premiere Pro</span>
+      <span class="chip">Photoshop</span>
+      <span class="chip">AI content tools (Claude Code, CapCut AI, Runway)</span>
+      <span class="chip">TikTok Analytics</span>
+      <span class="chip">Google Analytics</span>
+      <span class="chip">OSINT-based fact-checking and source verification</span>
       <span class="chip">Telegram ecosystems</span>
       <span class="chip">Content planning tools</span>
     </div>
@@ -544,7 +640,7 @@
 
 </div>
 
-<footer>© 2025 Alia K</footer>
+<footer>© 2026 Alia K</footer>
 
 <!-- STORY VIEWER -->
 <div class="story-viewer" id="storyViewer">
@@ -681,22 +777,15 @@
 </script>
 
 <script>
-  var repImages = [
-    'assets/collaborations/govorit-respublika/slide-01.png',
-    'assets/collaborations/govorit-respublika/slide-02.png',
-    'assets/collaborations/govorit-respublika/slide-03.png',
-    'assets/collaborations/govorit-respublika/slide-04.png',
-    'assets/collaborations/govorit-respublika/slide-05.png',
-    'assets/collaborations/govorit-respublika/slide-06.png',
-    'assets/collaborations/govorit-respublika/slide-07.png'
-  ];
-  var repIndex = 0;
-
-  function repShift(d) {
-    repIndex = (repIndex + d + repImages.length) % repImages.length;
-    document.getElementById('repMedia').src = repImages[repIndex];
-    var dots = document.querySelectorAll('#repDots .collab-dot');
-    dots.forEach(function (dot, i) { dot.classList.toggle('active', i === repIndex); });
+  function shiftCarousel(btn, dir) {
+    var wrap = btn.parentElement;
+    var images = JSON.parse(wrap.getAttribute('data-images'));
+    var idx = parseInt(wrap.getAttribute('data-index') || '0', 10);
+    idx = (idx + dir + images.length) % images.length;
+    wrap.setAttribute('data-index', idx);
+    wrap.querySelector('img').src = images[idx];
+    var dots = wrap.querySelectorAll('.collab-dot');
+    dots.forEach(function (dot, i) { dot.classList.toggle('active', i === idx); });
   }
 </script>
 
