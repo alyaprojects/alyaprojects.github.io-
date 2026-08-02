@@ -175,6 +175,9 @@
   .collab-featured-media--contain { background: #10160f; }
   .collab-featured-media--contain img { object-fit: contain; }
   .collab-featured-media--center img { object-position: center; }
+  .collab-featured-media--embed { aspect-ratio: auto; height: 580px; background: #000; }
+  .collab-featured-media--embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+  @media(max-width: 700px) { .collab-featured-media--embed { height: 620px; } }
   .collab-list { display: flex; flex-direction: column; gap: 2rem; }
   .collab-list .collab-featured { margin-bottom: 0; }
   .collab-carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: none; background: rgba(0,0,0,0.55); color: #fff; font-size: 1.1rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; z-index: 3; }
@@ -363,7 +366,7 @@
         </div>
       </div>
 
-      <div class="col-label" style="margin-top:2.5rem;">Client testimonial</div>
+      <div class="col-label" style="margin-top:2.5rem;">Nika's testimonial about my work 💙</div>
       <div class="video-embed">
         <iframe src="https://www.youtube.com/embed/l0a-gdZPBjg?start=1137&end=1207" title="Nika's public testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
@@ -374,7 +377,7 @@
   <!-- STORIES -->
   <section id="stories">
     <div class="section-label"><span class="section-label-text">Content formats</span></div>
-    <h2 style="margin-bottom:.75rem;">Promotional stories</h2>
+    <h2 style="margin-bottom:.75rem;">Promotional stories and reels</h2>
     <p style="margin-bottom:2.5rem; max-width:520px;">Investigative and editorial stories created for DOXA's audience — turning complex reporting into engaging, shareable social content.</p>
 
     <div class="stories-grid">
@@ -386,7 +389,7 @@
             <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
           </svg>
           <div class="story-folder-name">Выставка «Россия»<br>на ВДНХ</div>
-          <div class="story-folder-count">9 сторис</div>
+          <div class="story-folder-count">9 stories</div>
         </button>
       </div>
 
@@ -397,19 +400,20 @@
             <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
           </svg>
           <div class="story-folder-name">Профиль Шамана</div>
-          <div class="story-folder-count">8 сторис</div>
+          <div class="story-folder-count">8 stories</div>
         </button>
       </div>
 
       <div class="story-folder-card">
         <div class="story-folder-tab"></div>
-        <button type="button" class="story-folder" onclick="openStory('patreon')">
+        <button type="button" class="story-folder is-disabled" disabled>
           <svg class="story-folder-icon" width="56" height="42" viewBox="0 0 56 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 8a4 4 0 0 1 4-4h13l4 5h27a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" fill="url(#folderGrad)"/>
           </svg>
-          <div class="story-folder-name">Patreon-кампания</div>
-          <div class="story-folder-count">3 сторис</div>
+          <div class="story-folder-name">Интервью с анархистом</div>
+          <div class="story-folder-count">Reel featuring the article's author</div>
         </button>
+        <a class="collab-link-hint" href="https://doxa.team/articles/lev-skoryakin" target="_blank" rel="noopener" style="display:block; margin-top:.7rem;">Read the promoted interview →</a>
       </div>
 
     </div>
@@ -446,12 +450,12 @@
       </div>
 
       <div class="collab-featured">
-        <div class="collab-featured-media collab-featured-media--center">
-          <img src="assets/collaborations/doxa-x-bloggers-reels.jpeg" alt="DOXA × bloggers Reels collaboration with Mari Margo">
+        <div class="collab-featured-media collab-featured-media--embed">
+          <iframe src="https://www.instagram.com/reel/C-9olz0CVeL/embed" title="DOXA × Mari Margo Reels collaboration" loading="lazy" allowtransparency="true" allowfullscreen></iframe>
         </div>
         <div class="collab-featured-info">
           <div class="collab-name">DOXA × Bloggers in Reels</div>
-          <p class="collab-desc">Collaboration with blogger Mari Margo, translating investigative content into short-form video.</p>
+          <p class="collab-desc">Collaboration with blogger Mari Margo, adapting DOXA's <a href="https://doxa.team/articles/druzhba" target="_blank" rel="noopener">guide on how to make friends as an adult</a> into short-form video.</p>
           <span class="collab-reach">31K views</span>
           <a class="collab-link-hint" href="https://www.instagram.com/reel/C-9olz0CVeL/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">View the reel on Instagram →</a>
         </div>
@@ -583,14 +587,6 @@
         'assets/stories/shaman/slide-06.jpeg',
         'assets/stories/shaman/slide-07.jpeg',
         'assets/stories/shaman/slide-08.jpeg'
-      ]
-    },
-    patreon: {
-      title: 'Patreon-кампания',
-      images: [
-        'assets/stories/patreon/slide-01.jpeg',
-        'assets/stories/patreon/slide-02.jpeg',
-        'assets/stories/patreon/slide-03.jpeg'
       ]
     }
   };
